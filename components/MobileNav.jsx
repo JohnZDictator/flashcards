@@ -39,8 +39,16 @@ const MobileNav = () => {
         </nav>
         <SignedOut>
           <div className="flex flex-col gap-4 mb-12">
-            <Button variant="outline">Login</Button>
-            <Button>Signup</Button>
+            <Link href="/sign-in">
+              <Button variant="outline">
+                Login
+              </Button>
+            </Link>
+            <Link href="/sign-up">
+              <Button>
+                Signup
+              </Button>
+            </Link>
           </div>
         </SignedOut>
       </SheetContent>
