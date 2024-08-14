@@ -11,15 +11,14 @@ const Footer = () => {
             Flashy
           </h1>
         </Link>
-        <div className="">
-          <p className="text-white">&copy; 2024 Flashy. All rights reserved.</p> 
-        </div>
+        <p className="text-white hidden xl:flex">&copy; 2024 Flashy. All rights reserved.</p> 
         <div className="flex flex-row gap-4">
           <span><FaXTwitter color="white" /></span>
           <span><FaLinkedin color="white" /></span>
           <span><FaFacebook color="white" /></span>
         </div>
       </div>
+      <p className="text-white xl:hidden mt-2 mx-4">&copy; 2024 Flashy. All rights reserved.</p> 
     </footer>
   )
 }
