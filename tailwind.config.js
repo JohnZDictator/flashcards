@@ -30,8 +30,14 @@ module.exports = {
           hover: "hsl(69.6,89.64%,70%)"
         },
         background: "#FFFFFF",
-        cardBackgroundPrimary: "#f1f5ef",
-        black: "#141F2E",
+        card_bg: {
+          DEFAULT: "#f1f5ef",
+          accent: "#d5e5d2",
+        },
+        black: {
+          DEFAULT: "#141F2E",
+          accent: "#929AA7",
+        },
         accent: {
           DEFAULT: "#0F8FA4",
           hover: "#00e187",

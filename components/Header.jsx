@@ -7,8 +7,8 @@ import { Button } from './ui/button'
 
 const Header = () => {
   return (
-    <header className='py-6 text-black'>
-      <div className='container mx-auto xl:max-w-[90%] flex justify-between items-center'>
+    <header className='pt-6 pb-4 text-black fixed top-0 left-0 w-full bg-inherit'>
+      <div className='mx-4 md:mx-12 flex justify-between items-center'>
         <Link href="/">
           <h1 className='text-2xl text-primary font-semibold'>
             Flashy
