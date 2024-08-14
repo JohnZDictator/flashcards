@@ -22,8 +22,16 @@ const Header = () => {
         </div>
         <SignedOut>
           <div className="hidden xl:flex xl:gap-2">
-            <Button variant="outline">Login</Button>
-            <Button>Signup</Button>
+            <Link href="/sign-in">
+              <Button variant="outline">
+                Login
+              </Button>
+            </Link>
+            <Link href="/sign-up">
+              <Button>
+                Signup
+              </Button>
+            </Link>
           </div>
         </SignedOut>
       </div>
