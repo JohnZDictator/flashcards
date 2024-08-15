@@ -6,7 +6,7 @@ import PricingSection from "@/components/PricingSection";
 
 export default function Home() {
   return (
-    <main>
+    <main className="flex-grow">
       <HeroSection />
       <StatsSection />
       <FeaturesSection />

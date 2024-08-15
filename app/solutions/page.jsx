@@ -1,6 +1,6 @@
 const Services = () => {
   return (
-    <div>services page</div>
+    <div className="flex-grow">services page</div>
   )
 }
 
