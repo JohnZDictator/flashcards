@@ -2,7 +2,7 @@ import React from 'react'
 
 const Pricing = () => {
   return (
-    <div>Pricing</div>
+    <div className='flex-grow'>Pricing</div>
   )
 }
 

@@ -3,7 +3,7 @@ import { Button } from './ui/button'
 
 const PricingSection = () => {
   return (
-    <section className="flex flex-col gap-4 items-center mx-4 my-16">
+    <section id="pricing" className="flex flex-col gap-4 items-center mx-4 my-16">
       <div className="rounded-full px-3 py-1 border border-primary mb-8">
         <p className="text-sm">Pricing</p>
       </div>

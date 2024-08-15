@@ -1,6 +1,5 @@
 import { GoogleGenerativeAI, FunctionDeclarationSchemaType } from "@google/generative-ai";
 import { NextResponse } from "next/server";
-// import OpenAI from "openai";
 
 const systemPrompt = `
 You are a flashcard content creator. Your task is to generate concise and effective flashcards based on the given topic or concept. Follow these steps to ensure each flashcard is well-crafted:
@@ -25,54 +24,26 @@ You are a flashcard content creator. Your task is to generate concise and effect
 `
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({
-  model: "gemini-1.5-flash", 
-  generationConfig: {
-    responseMimeType: "application/json",
-    responseSchema: {
-      type: FunctionDeclarationSchemaType.ARRAY,
-      items: {
-        type: FunctionDeclarationSchemaType.OBJECT,
-        properties: {
-          front: {
-            type: FunctionDeclarationSchemaType.STRING,
-          },
-          back: {
-            type: FunctionDeclarationSchemaType.STRING,
-          }
-        }
-      }
-    }
-  }
-})
+
 
 export async function POST(req) {
   const data = await req.text()
+  const model = genAI.getGenerativeModel({
+    model: "gemini-1.5-flash", 
+    generationConfig: {
+      responseMimeType: "application/json",
+    }
+  })
   const chat = model.startChat({
     history: [
       {
-        role: "model",
+        role: "user",
         parts:  [{text: systemPrompt}]
       },
     ],
   })
 
   const result = await chat.sendMessage(data)
-  return NextResponse.json(result.response.text(), {status: 201})
+  const flashcards = JSON.parse(result.response.text())
+  return NextResponse.json(flashcards.flashcards, {status: 201})
 }
-
-// export async function POST(req) {
-//     const openai = new OpenAI()
-//     const data = await req.text()
-//     const completion = await openai.chat.completions.create({
-//         messages: [
-//             {role: "system", content: systemPrompt},
-//             {role: "user", content: data},
-//         ],
-//         model: "gpt-3.5-turbo",
-//         response_format: {type: 'json_object'}
-//     })
-
-//     const flashcards = JSON.parse(completion.choices[0].message.content)
-//     return NextResponse.json(flashcards.flashcard);
-// }

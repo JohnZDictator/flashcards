@@ -1,6 +1,6 @@
 const FeaturesSection = () => {
   return (
-    <section className="flex flex-col gap-8 rounded-2xl bg-card_bg items-center mx-4 my-16 py-12">
+    <section id="features" className="flex flex-col gap-8 rounded-2xl bg-card_bg items-center mx-4 my-16 py-12">
       <div className="rounded-full px-3 py-1 border border-black">
         <p className="text-sm">Features</p>
       </div>

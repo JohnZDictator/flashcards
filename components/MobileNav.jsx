@@ -8,9 +8,9 @@ import { SignedOut } from "@clerk/nextjs";
 import { Button } from "./ui/button";
 
 const links = [
-  {name: 'Products', path: '/'},
-  {name: 'Solutions', path: '/solutions'},
-  {name: 'Pricing', path: '/pricing'},
+  {name: 'Products', path: '#products'},
+  {name: 'Features', path: '#features'},
+  {name: 'Pricing', path: '#pricing'},
 ];
 
 const MobileNav = () => {
@@ -38,7 +38,7 @@ const MobileNav = () => {
         )}
         </nav>
         <SignedOut>
-          <div className="flex flex-col gap-4 mb-12">
+          <div className="flex flex-col gap-4 mb-12 items-center">
             <Link href="/sign-in">
               <Button variant="outline">
                 Login
