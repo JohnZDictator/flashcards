@@ -4,9 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const links = [
-  {name: 'Products', path: '#products'},
-  {name: 'Features', path: '#features'},
-  {name: 'Pricing', path: '#pricing'},
+  {name: 'Products', path: '/#products'},
+  {name: 'Features', path: '/#features'},
+  {name: 'Pricing', path: '/#pricing'},
 ];
 
 const Nav = () => {

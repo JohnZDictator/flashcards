@@ -2,7 +2,7 @@ import React from 'react'
 
 const StatsSection = () => {
   return (
-    <section className="flex flex-col gap-8 md:flex-row mx-auto md:max-w-[80%] justify-evenly items-center mt-16">
+    <section id="features" className="flex flex-col gap-8 md:flex-row mx-auto md:max-w-[80%] justify-evenly items-center mt-16">
       <article className="text-center flex flex-col gap-4">
         <p className="text-5xl font-medium">2M+</p>
         <div>

@@ -8,9 +8,9 @@ import { SignedOut } from "@clerk/nextjs";
 import { Button } from "./ui/button";
 
 const links = [
-  {name: 'Products', path: '#products'},
-  {name: 'Features', path: '#features'},
-  {name: 'Pricing', path: '#pricing'},
+  {name: 'Products', path: '/#products'},
+  {name: 'Features', path: '/#features'},
+  {name: 'Pricing', path: '/#pricing'},
 ];
 
 const MobileNav = () => {

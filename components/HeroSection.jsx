@@ -4,7 +4,7 @@ import Link from "next/link"
 
 const HeroSection = () => {
   return (
-    <section className="rounded-2xl text-white bg-primary mt-24 mx-4 py-16 px-12 flex flex-col justify-center items-center">
+    <section id="products" className="rounded-2xl text-white bg-primary mt-24 mx-4 py-16 px-12 flex flex-col justify-center items-center">
       <div className="rounded-full px-3 py-1 border border-white mb-8">
         <p className="text-sm">Products</p>
       </div>
