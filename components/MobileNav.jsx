@@ -4,11 +4,11 @@ import Link from "next/link"
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
 import { CiMenuFries } from 'react-icons/ci' 
 import { usePathname } from "next/navigation";
-import { SignedOut } from "@clerk/nextjs";
+import { SignedOut, SignedIn, UserButton } from "@clerk/nextjs";
 import { Button } from "./ui/button";
 
 const links = [
-  {name: 'Products', path: '/#products'},
+  {name: 'Products', path: '/#'},
   {name: 'Features', path: '/#features'},
   {name: 'Pricing', path: '/#pricing'},
 ];
@@ -51,6 +51,9 @@ const MobileNav = () => {
             </Link>
           </div>
         </SignedOut>
+        <SignedIn>
+          <div></div>
+        </SignedIn>
       </SheetContent>
     </Sheet>
   )
