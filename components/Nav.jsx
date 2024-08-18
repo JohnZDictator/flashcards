@@ -4,13 +4,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const links = [
-  {name: 'Products', path: '/#products'},
+  {name: 'Products', path: '/#'},
   {name: 'Features', path: '/#features'},
   {name: 'Pricing', path: '/#pricing'},
 ];
 
 const Nav = () => {
-  const pathname = usePathname()
+  const pathname = usePathname()  
   return (
     <nav className="flex gap-8">
       {links.map((link, index) => (
