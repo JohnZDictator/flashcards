@@ -225,7 +225,7 @@ const Generate = () => {
       </div>
 
       <AlertDialog open={alertOpen} onOpenChange={setAlertOpen}>
-        <AlertDialogContent>
+        <AlertDialogContent className="text-center mx-auto max-w-[80%] md:max-w-[60%]">
           <AlertDialogHeader>
             <AlertDialogTitle>{isSuccessAlert ? "Success Message" : "Error Message"}</AlertDialogTitle>
             <AlertDialogDescription>
