@@ -12,7 +12,8 @@ const buttonVariants = cva(
         default: "bg-secondary text-black hover:bg-secondary-hover hover:drop-shadow-xl",
         primary: "bg-secondary text-black hover:drop-shadow-xl",
         outline: "border border-grey bg-transparent text-black hover:bg-secondary-hover hover:text-black hover:drop-shadow-xl hover:border-transparent",
-        
+        destructive:
+          "bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-slate-50 dark:hover:bg-red-900/90",
       },
       size: {
         default: "h-[44px] px-6",
