@@ -18,6 +18,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { IoAdd } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa6";
+import Link from "next/link"
 
 const Dashboard = () => {
   const {isLoaded, isSignedIn, user} = useUser()
@@ -25,6 +26,9 @@ const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
 
+  // const handleCardClick = (id, question) => {
+  //   router.push(`/flashcard?id=${id}&question=${question}`)
+  // }
   const handleCardClick = (id) => {
     router.push(`/flashcard?id=${id}`)
   }
@@ -63,7 +67,9 @@ const Dashboard = () => {
       <p className="text-xl my-4">Create flashcards and continue studying</p>
      </div>
     <div className="flex flex-row justify-end mt-8">
-        <Button><IoAdd className="text-xl mr-1 stroke-2 fill-black"/>Create</Button>
+        <Link href="/generate">
+          <Button><IoAdd className="text-xl mr-1 stroke-2 fill-black"/>Create</Button>
+        </Link>
       </div>
       {isLoading && (
         <div className="flex gap-2 m-auto items-center justify-center">
@@ -84,14 +90,15 @@ const Dashboard = () => {
           ))}
         </div>
       )}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 items-center mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 m-8">
         {flashcards.map((flashcard, index) => 
-          <Card key={index} className="flex flex-col">
+          <Card key={index} className="flex flex-col justify-between">
             <CardHeader>
               <CardTitle>{flashcard.name}</CardTitle>
               <CardDescription>{flashcard.question}</CardDescription>
             </CardHeader>
             <CardFooter>
+              {/* <Button onClick={() => handleCardClick(flashcard.name, flashcard.question ?? '')}><FaArrowRight/></Button> */}
               <Button onClick={() => handleCardClick(flashcard.name)}><FaArrowRight/></Button>
             </CardFooter>
           </Card>
