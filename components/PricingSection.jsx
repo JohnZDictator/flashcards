@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { Button } from './ui/button'
 
 const PricingSection = () => {
@@ -12,7 +13,9 @@ const PricingSection = () => {
         <article className="flex flex-col gap-6 rounded-2xl bg-primary text-white py-12 px-8">
           <p className='text-2xl font-semibold'>Free Plan</p>
           <p>Perfect for casual learners. Get started with basic features and generate up to <span className='text-secondary font-semibold'>50</span> flashcards per month.</p>
-          <Button>View plan</Button>
+          <Link href="/sign-up">
+            <Button>View plan</Button>
+          </Link>
         </article>
         <article className="flex flex-col gap-6 rounded-2xl bg-primary text-white py-12 px-8">
           <p className='text-2xl font-semibold'>Pro Plan: $9.99/month</p>
