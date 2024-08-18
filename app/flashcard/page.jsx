@@ -2,7 +2,7 @@
 
 import { db } from "@/firebase"
 import { useUser } from "@clerk/nextjs"
-import { collection, doc, getDocs } from "@firebase/firestore"
+import { collection, doc, getDoc, getDocs } from "@firebase/firestore"
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
@@ -42,6 +42,7 @@ const Flashcard = () => {
 
   const searchParams = useSearchParams()
   const search = searchParams.get('id')
+  // const question = searchParams.get('question')
 
   const handleCardClick = (id) => {
     setFlipped((prev) => ({
@@ -62,15 +63,13 @@ const Flashcard = () => {
       setIsLoading(true)
 
       try {
-        const colRef = collection(doc(collection(db, 'users'), user.id), "flashcardSets", search)
-        const docs = await getDocs(colRef)
-        const flashcards = []
-        docs.forEach((doc) => {
-          flashcards.push({ id: doc.id, ...doc.data() })
-        })
-        console.log(`I have reached here #2: ${flashcards}`)
-        console.log(flashcards)
-        setFlashcards(flashcards)
+        const colRef = doc(collection(doc(collection(db, 'users'), user.id), "flashcardSets"), search)
+        const docs = await getDoc(colRef)
+        
+        if(docs.exists()) {
+          const collections = await docs.data().flashcards || []
+          setFlashcards(collections)
+        }
       } catch (error) {
         console.error(`Failed to fetch flashcards: ${error}`)
       } finally {
@@ -102,8 +101,8 @@ const Flashcard = () => {
   };
 
   return (
-    <main className="flex flex-col flex-grow">
-      {/* <AlertDialog open={alertOpen} onOpenChange={setAlertOpen}>
+    <main className="flex flex-col flex-grow mt-32 mb-8 mx-4 md:mx-12">
+      <AlertDialog open={alertOpen} onOpenChange={setAlertOpen}>
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>Error Message</AlertDialogTitle>
@@ -115,7 +114,10 @@ const Flashcard = () => {
             <AlertDialogCancel>Okay</AlertDialogCancel>
           </AlertDialogFooter>
         </AlertDialogContent>
-      </AlertDialog> */}
+      </AlertDialog>
+
+      <p className="text-xl md:text-2xl font-medium">{search}</p>
+      {/* <p className="text-md md:text-lg">{question}</p> */}
 
       {isLoading && (
         <div className="flex gap-2 m-auto items-center justify-center">
@@ -138,8 +140,8 @@ const Flashcard = () => {
       )}
 
       {flashcards.length > 0 && (
-        <div className="flex flex-col items-center gap-8">
-          <Carousel className="w-[60%] max-w-md xl:max-w-[60%]">
+        <div className="flex flex-col m-auto justify-center gap-8">
+          <Carousel className="w-[80%] max-w-md xl:max-w-[60%]">
             <CarouselContent>
               {flashcards.map((card, index) => (
                 <CarouselItem key={index}>

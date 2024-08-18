@@ -255,7 +255,7 @@ const Generate = () => {
       </Dialog>
 
       {isLoading && (
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-2 m-auto items-center justify-center">
           {[...Array(3)].map((_, index) => (
             <motion.div
               key={index}
