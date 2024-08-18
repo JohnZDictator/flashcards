@@ -103,7 +103,7 @@ const Flashcard = () => {
   return (
     <main className="flex flex-col flex-grow mt-32 mb-8 mx-4 md:mx-12">
       <AlertDialog open={alertOpen} onOpenChange={setAlertOpen}>
-        <AlertDialogContent>
+        <AlertDialogContent className="text-center mx-auto max-w-[80%] md:max-w-[60%]">
           <AlertDialogHeader>
             <AlertDialogTitle>Error Message</AlertDialogTitle>
             <AlertDialogDescription>
@@ -140,8 +140,8 @@ const Flashcard = () => {
       )}
 
       {flashcards.length > 0 && (
-        <div className="flex flex-col m-auto justify-center gap-8">
-          <Carousel className="w-[80%] max-w-md xl:max-w-[60%]">
+        <div className="flex flex-col my-8 items-center justify-center gap-8">
+          <Carousel className="max-w-[80%] md:max-w-sm">
             <CarouselContent>
               {flashcards.map((card, index) => (
                 <CarouselItem key={index}>
