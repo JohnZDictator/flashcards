@@ -20,13 +20,15 @@ const PricingSection = () => {
         <article className="flex flex-col gap-6 rounded-2xl bg-primary text-white py-12 px-8">
           <p className='text-2xl font-semibold'>Pro Plan: $9.99/month</p>
           <p>Ideal for dedicated students. Unlock <span className='text-secondary font-semibold'>unlimited</span> flashcard generation, advanced personalization, and priority support.</p>
-          <Button>View plan</Button>
+          <Link href="/result">
+            <Button>View plan</Button>
+          </Link>
         </article>
-        <article className="flex flex-col gap-6 rounded-2xl bg-primary text-white py-12 px-8">
+        {/* <article className="flex flex-col gap-6 rounded-2xl bg-primary text-white py-12 px-8">
           <p className='text-2xl font-semibold'>Team Plan: $29.99/month</p>
           <p>Best for groups and classrooms. Enjoy all <span className='text-secondary font-medium'>Pro</span> features, plus collaborative tools and group study sessions.</p>
           <Button>View plan</Button>
-        </article>
+        </article> */}
       </section>
     </section>
   )
