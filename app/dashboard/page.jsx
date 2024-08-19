@@ -3,8 +3,8 @@
 import { db } from "@/firebase"
 import { useUser } from "@clerk/nextjs"
 import { collection, doc, getDoc, setDoc } from "@firebase/firestore"
-import { useRouter } from "next/navigation"
-import { useEffect, useState } from "react"
+import { redirect, useRouter } from "next/navigation"
+import { useEffect, useLayoutEffect, useState } from "react"
 import { motion } from "framer-motion"
 
 import {
@@ -60,10 +60,21 @@ const Dashboard = () => {
     end: { y: "100%" },
   };
 
+  useLayoutEffect(() => {
+    const isAuthenticated = isSignedIn
+    if(!isAuthenticated) {
+      redirect('/')
+    }
+  }, [isSignedIn]);
+
+  if(!isSignedIn) {
+    return <></>
+  }
+
   return (
     <main className="flex flex-col flex-grow mt-32 mx-4 md:mx-12">
      <div className="max-w-[90%]">
-      <p className="text-3xl md:text-4xl xl:text-5xl font-medium">Welcome back, <span className="text-primary font-semibold">Yohannes</span></p>
+      <p className="text-3xl md:text-4xl xl:text-5xl font-medium">Welcome back, <span className="text-primary font-semibold">{user.firstName}</span></p>
       <p className="text-xl my-4">Create flashcards and continue studying</p>
      </div>
     <div className="flex flex-row justify-end mt-8">
