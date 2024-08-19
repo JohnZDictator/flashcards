@@ -20,7 +20,7 @@ const PricingSection = () => {
         <article className="flex flex-col gap-6 rounded-2xl bg-primary text-white py-12 px-8">
           <p className='text-2xl font-semibold'>Pro Plan: $9.99/month</p>
           <p>Ideal for dedicated students. Unlock <span className='text-secondary font-semibold'>unlimited</span> flashcard generation, advanced personalization, and priority support.</p>
-          <Link href="/result">
+          <Link href="/payment">
             <Button>View plan</Button>
           </Link>
         </article>
