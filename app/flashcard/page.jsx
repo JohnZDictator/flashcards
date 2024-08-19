@@ -3,8 +3,8 @@
 import { db } from "@/firebase"
 import { useUser } from "@clerk/nextjs"
 import { collection, doc, getDoc, getDocs } from "@firebase/firestore"
-import { useSearchParams } from 'next/navigation'
-import { useEffect, useState } from "react"
+import { redirect, useSearchParams } from 'next/navigation'
+import { useEffect, useLayoutEffect, useState } from "react"
 import { motion } from "framer-motion"
 
 import {
@@ -99,6 +99,16 @@ const Flashcard = () => {
     start: { y: "0%" },
     end: { y: "100%" },
   };
+
+  useLayoutEffect(() => {
+    if(!isSignedIn) {
+      redirect('/')
+    }
+  }, [isSignedIn])
+
+  if(!isSignedIn) {
+    return <></>
+  }
 
   return (
     <main className="flex flex-col flex-grow mt-32 mb-8 mx-4 md:mx-12">
